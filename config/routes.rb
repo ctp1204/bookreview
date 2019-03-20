@@ -28,8 +28,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "static_pages#index"
+<<<<<<< HEAD
     resources :books, except: :show
     resources :categories
     resources :users
+=======
+    resources :books
+    resources :categories
+>>>>>>> admin_category
   end
 end

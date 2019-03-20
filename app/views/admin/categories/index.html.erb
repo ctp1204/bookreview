@@ -22,17 +22,17 @@
             </thead>
             <tbody>
               <% load_categories.each do |category| %>
-              <tr class=" gradeX">
-                <td id="catId"><%= category.id %></td>
-                <td>
-                  <label for="rad1">
-                    <%= link_to category.name, books_path(category: category.id), class: "link" %>
-                  </label>
-                </td>
-                <td class="center">
-                  <%= link_to t(".delete"), admin_category_path(category), method: :delete, data:{confirm: t("sure")}, class: "fa fa-trash btn btn-danger " %>
-                </td>
-              </tr>
+                <tr class=" gradeX">
+                  <td id="catId"><%= category.id %></td>
+                  <td>
+                    <label for="rad1">
+                      <%= link_to category.name, books_path(category: category.id), class: "link" %>
+                    </label>
+                  </td>
+                  <td class="center">
+                    <%= link_to t(".delete"), admin_category_path(category), method: :delete, data:{confirm: t("sure")}, class: "fa fa-trash btn btn-danger " %>
+                  </td>
+                </tr>
               <% end %>
             </tbody>
           </table>
