@@ -80,6 +80,7 @@
                         <% end %>
                       <% end %>
                     </div>
+                    <span><%= @book.description %></span>
                     <% if logged_in? && current_user.admin %>
                       <%= link_to t("view.books.show.edit_book"), edit_book_path(@book) %>
                       <%= link_to t("view.books.show.delete"), book_path(@book), method: :delete, data:
@@ -108,7 +109,11 @@
                       </div>
                       <div role="tabpanel" class="tg-tab-pane tab-pane active" id="review">
                         <div class="tg-description">
-                          <%= render @book.reviews %>
+                          <% if @book.reviews.size == 0 %>
+                            <h5><%= t "view.books.show.no_review" %></h5>
+                          <% else %>
+                            <%= render @book.reviews %>
+                          <% end %>
                         </div>
                       </div>
                     </div>

@@ -1,8 +1,8 @@
 class BooksController < ApplicationController
-  before_action :logged_in_user, except: %i(index show find)
-  before_action :load_book, :build_like, except: %i(index find new create)
-  before_action :admin_user, except: %i(index show find)
-  before_action :book_by_category, only: %i(show find)
+  before_action :logged_in_user, except: %i(index show find search)
+  before_action :load_book, :build_like, except: %i(index find new create search)
+  before_action :admin_user, except: %i(index show find search)
+  before_action :book_by_category, only: %i(show find search)
 
   def index
     @books = Book.newest
@@ -18,7 +18,7 @@ class BooksController < ApplicationController
   def find; end
 
   def search
-    @books = Book.by_author_title(params[:search])
+    @books = Book.by_author_title_book(params[:search])
   end
 
   def new

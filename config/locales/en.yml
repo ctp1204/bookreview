@@ -132,6 +132,7 @@ your password will stay as it is."
         relate_book: "Related Books"
         also_like: "You May Also Like"
         no_category: "There are no books currently in this category"
+        no_review: "There are no reviews currently in this book"
         addreview: "AddReview"
         search: "Search title, author ..."
       bookslider:

@@ -20,4 +20,7 @@ class Book < ApplicationRecord
   scope :by_author_title, ->(key_search) do
     where "title LIKE '%?%' OR author LIKE '%?%'", key_search, key_search if key_search.present?
   end
+
+  scope :by_author_title_book,
+  ->(key_search){where "(title) LIKE ? OR (author) LIKE ?", "%#{key_search}%", "%#{key_search}%"}
 end
