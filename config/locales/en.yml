@@ -109,6 +109,9 @@ en:
       unlike_success: "Unlike a book success"
       unlike_fail: "Unlike a book fail"
       load_like: "Sorry, no like"
+    admin:
+      suggests:
+        book_status: "Book %{name} has %{value}"
   view:
     shared:
       following: "following"

@@ -31,6 +31,7 @@ class SuggestsController < ApplicationController
   end
 
   private
+
   def suggest_params
     params.require(:suggest).permit :user_id, :title,
      :content, :author, :categories
@@ -50,4 +51,9 @@ class SuggestsController < ApplicationController
     flash[:danger] = t "controller.book.please_login"
     redirect_to login_path
   end
+
+  def suggest_status
+    @suggests = Suggest.by_suggest_status(params[:status])
+  end
+
 end
