@@ -30,5 +30,6 @@ Rails.application.routes.draw do
     root "static_pages#index"
     resources :books, except: :show
     resources :categories
+    resources :users
   end
 end
