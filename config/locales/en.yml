@@ -234,3 +234,12 @@ your password will stay as it is."
         edit: "Sửa Danh Mục"
         name: "Tên Danh Mục"
         add_category: "Add Category"
+      edit:
+        edit_book: "Edit Book"
+        title: "Book Title"
+        edit_book: "Edit Book"
+      index:
+        add: "ADD"
+        category: "Quản lý danh mục"
+      new:
+        add_book: "Add Book"
