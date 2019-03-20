@@ -6,7 +6,7 @@ en:
   please_login: "Please Log in."
   hello: "Hello world"
   pass_reset: "Password reset"
-  sure: "You a sure?"
+  sure: "You a sure!"
   error: "An error has occurred, please try again!"
   layouts:
     application:
@@ -37,8 +37,20 @@ en:
       suggest: "Quản Lý yêu Cầu"
       comment: "Quản Lý Comment"
       reply: "Reply"
+      suggest: "My suggest"
   deleted: "Book deleted"
   un_delete: "unsuccessfully_book"
+  suggests:
+    index:
+      book_name: "Book Name"
+      book_category: "Book Category"
+      author: "Author"
+      created_at: "Created_at"
+      status: "Status"
+      action: "Action"
+    new:
+      send: "Send"
+      back: "Back"
   books:
     banner:
       all_book: "All Books"
