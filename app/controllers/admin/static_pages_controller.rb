@@ -14,10 +14,6 @@ class Admin::StaticPagesController < ApplicationController
   end
 
   def admin_user
-<<<<<<< HEAD
     redirect_to(root_path) unless current_user.admin?
-=======
-    redirect_to(root_url) unless current_user.admin?
->>>>>>> admin_book
   end
 end

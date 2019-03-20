@@ -68,8 +68,6 @@
                     <div class="like-unlike">
                       <div class="count_like">
                         <i><b><%= @book.likes.size %></b> <i class="fas fa-thumbs-up"></i></i>
-                      <div class="base"><%= t "view.books.show.base" %>
-                      <%= @book.reviews.size %> reviews</div>
                       </div>
                       <% if logged_in? %>
                         <% if like? @book %>
