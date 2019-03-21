@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
 
     if @review.save
+      target_activity @review
       flash[:success] = t "controller.reviews.create_review"
       redirect_to book_path(@book)
     else
@@ -25,6 +26,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
+      target_activity @review
       flash[:success] = t "controller.reviews.update_review"
       redirect_to book_path(@book)
     else
@@ -35,6 +37,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     if @review.destroy
+      target_activity @review
       flash[:success] = t "controller.reviews.delete_reivew"
       redirect_to book_path(@book)
     else

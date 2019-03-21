@@ -4,6 +4,7 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.build likes_params
     if @like.save
+      target_activity @like
       flash[:success] = t "controller.likes.like_success"
     else
       flash[:danger] = t "controller.likes.like_fail"
@@ -13,6 +14,7 @@ class LikesController < ApplicationController
 
   def destroy
     if @like.destroy
+      target_activity @like
       flash[:success] = t "controller.likes.unlike_success"
     else
       flash[:danger] = t "controller.likes.unlike_fail"

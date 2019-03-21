@@ -17,3 +17,6 @@ User.create!(name:  "Le Quoc Cuong",
                activated: true,
                activated_at: Time.zone.now)
 end
+Category.create(name: "Sach Hay")
+Category.create(name: "Sach Khoa Hoc")
+Category.create(name: "Sach Giao Khoa")

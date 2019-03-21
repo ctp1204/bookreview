@@ -86,6 +86,23 @@ en:
       unlike_fail: "Unlike a book fail"
       load_like: "Sorry, no like"
   view:
+    activities:
+      comment:
+        create_comment: "comment on book"
+        remove_comment: "added a comment which has since been removed"
+        destroy_comment: "removed comment on book"
+      like:
+        create_like: "like on book"
+        remove_like: "added a like which has since been removed"
+        destroy_like: "removed like on book"
+      review:
+        create_review: "review on book"
+        update_review: "update review on book"
+        remove_review: "added a review which has since been removed"
+        destroy_review: "removed review on book"
+
+      list_activity: "List Activities"
+      no_activity: "There are no activity currently"
     shared:
       following: "following"
       followers: "followers"

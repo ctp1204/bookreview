@@ -1,0 +1,17 @@
+<h1><%= t "view.activities.list_activity" %></h1>
+<%= will_paginate %>
+  <% if @activities.any? %>
+    <div class="activity-container">
+      <% @activities.each do |activity| %>
+        <div class="activity">
+          <%= form_for activity do %>
+            <%= link_to activity.user.name, activity.user %>
+            <%= render "activities/#{activity.target_type.underscore}/#{activity.action}", activity: activity %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <% else %>
+      <h4><%= t "view.activities.no_activity" %></h4>
+  <% end %>
+<%= will_paginate %>
