@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :activities, dependent: :destroy
   # has_many :marks, dependent: :destroy
-  # has_many :suggests, dependent: :destroy
+  has_many :suggests, dependent: :destroy
   has_many :active_relationships, class_name: Relationship.name,
    foreign_key: :follower_id, dependent: :destroy
   has_many :passive_relationships, class_name: Relationship.name,
@@ -18,6 +18,7 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :create_activation_digest
   scope :activated, ->{where activated: true}
+  scope :sort_by_created_at, ->{order created_at: :DESC}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :name,  presence: true, length:
     {maximum: Settings.user.name.max_length}
@@ -27,6 +28,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length:
     {minimum: Settings.user.password.min_length}, allow_nil: true
   has_secure_password
+
+  enum role: {user: 0, admin: 1}
 
   class << self
     def digest string

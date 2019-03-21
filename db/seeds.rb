@@ -2,7 +2,7 @@ User.create!(name:  "Le Quoc Cuong",
              email: "lqcuong.qt@gmail.com",
              password: "CTP971204",
              password_confirmation: "CTP971204",
-             admin: true,
+             role: 1,
              activated: true,
              activated_at: Time.zone.now)
 

@@ -53,6 +53,6 @@ module SessionsHelper
   end
 
   def like? book
-    current_user.likes.find_by(book_id: book.id).present?
+    is_like = current_user.likes.find_by(book_id: book.id).present?
   end
 end

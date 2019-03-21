@@ -38,6 +38,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def updaterole
+    @user = User.find_by id: params[:id]
+    if @user.role == "admin"
+      @user.update(role: "user")
+      flash[:success] = "Set User Success"
+      redirect_to @user
+    elsif @user.role == "user"
+      @user.update(role: "admin")
+      flash[:success] = "Set Admin Success"
+      redirect_to @user
+    else
+      flash[:danger] = "fail"
+      redirect_to @user
+    end
+  end
+
   def destroy
     if @user.destroy
       flash[:success] = t "controller.user.delete_user"
@@ -66,7 +82,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :name, :email, :phone,
-      :address, :password, :password_confirmation, :role
+      :address, :password, :password_confirmation
   end
 
   def load_user

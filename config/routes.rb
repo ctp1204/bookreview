@@ -21,11 +21,22 @@ Rails.application.routes.draw do
   end
   resources :users do
     member do
+      patch :updaterole
       get :following, :followers
     end
   end
   resources :activities
-  resources :likes
+  post "/like", to: "likes#create"
+  delete "/unlike", to: "likes#destroy"
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :relationships, only: [:create, :destroy]
+  resources :suggests
+
+  namespace :admin do
+    root "static_pages#index"
+    resources :books, except: :show
+    resources :categories
+    resources :users
+    resources :suggests
+  end
 end

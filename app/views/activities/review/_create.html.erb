@@ -1,5 +1,5 @@
 <% if activity.target %>
-  <i><%= t "view.activities.review.create_review" %></i> " <%= link_to activity.target.book.title, activity.target.book %> "
+  <i><%= t "view.activities.review.create_review" %></i> " <%= link_to activity.target.book_title, activity.target.book %> "
   <i><%= time_ago_in_words(activity.created_at) %></i>
 <% else %>
   <i><%= t "view.activities.review.remove_review" %></i>

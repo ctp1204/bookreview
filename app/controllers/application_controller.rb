@@ -5,8 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def target_activity(target, action = params[:action])
+  def target_activity target, action = params[:action]
     current_user.activities.create! action: action, target: target
   end
-
 end

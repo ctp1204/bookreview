@@ -23,6 +23,7 @@ controllers:
     index_page: 3
   user:
     index_page: 5
+    index_page_admin: 6
 models:
   limit: 4
 controller:
@@ -34,3 +35,4 @@ view:
 per_page: 5
 activities:
   page_index: 10
+

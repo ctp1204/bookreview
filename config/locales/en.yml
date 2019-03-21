@@ -1,11 +1,12 @@
 en:
+  count_review: "%{count} reviews"
   title: "Book Review System"
   messenger: "sorry, Not found !"
   no_data: "Sorrt, data not found"
   please_login: "Please Log in."
   hello: "Hello world"
   pass_reset: "Password reset"
-  sure: "You a sure?"
+  sure: "You a sure!"
   error: "An error has occurred, please try again!"
   layouts:
     application:
@@ -26,8 +27,32 @@ en:
       latest_book: "Latest Book"
       suggest: Suggest
       listlike: "List Like"
+    header_admin:
+      sun*: "Sun Asterisk"
+      hi: "Xin Chào, "
+      logout: "Logout"
+    left_admin:
+      home: "Trang Chủ"
+      category: "Quản Lý Danh Mục"
+      book: " Quản Lý Truyện"
+      user: "Quản Lý Người Dùng"
+      suggest: "Quản Lý yêu Cầu"
+      comment: "Quản Lý Comment"
+      reply: "Reply"
+      suggest: "My suggest"
   deleted: "Book deleted"
   un_delete: "unsuccessfully_book"
+  suggests:
+    index:
+      book_name: "Book Name"
+      book_category: "Book Category"
+      author: "Author"
+      created_at: "Created_at"
+      status: "Status"
+      action: "Action"
+    new:
+      send: "Send"
+      back: "Back"
   books:
     banner:
       all_book: "All Books"
@@ -86,6 +111,8 @@ en:
       unlike_success: "Unlike a book success"
       unlike_fail: "Unlike a book fail"
       load_like: "Sorry, no like"
+    admin:
+      book_status: "Book %{name} has %{value}"
   view:
     activities:
       comment:
@@ -207,3 +234,44 @@ your password will stay as it is."
         password: "Password"
         password_confirmation: "Password Confirmation"
         role: "Role"
+  admin:
+    static_pages:
+      index:
+        admin_layout: "TRANG QUẢN TRỊ VIÊN"
+        category: "Quản lý danh mục"
+        book: "Quản lý truyện"
+        user: "Quản lý người dùng"
+        suggest: "Quản lý yêu cầu"
+        comment: " comment/reply"
+    books:
+      book:
+        sure: "Are you sure!"
+        edit: " Edit"
+        delete: " Delete"
+        name: "Tên"
+        view: "Lượt xem"
+        image: "Hình ảnh"
+        action: "Chức năng"
+        category: "Danh mục"
+        id: "ID"
+      edit:
+        edit_book: "Edit Book"
+      index:
+        add: "ADD"
+        category: "Quản lý truyện"
+      new:
+        add_book: "Add Book"
+      form:
+        book_title: "Book Title"
+    categories:
+      delete: " Delete"
+      edit: "Sửa Danh Mục"
+      name: "Tên Danh Mục"
+      add_category: "Add Category"
+    users:
+      delete: " Delete"
+      id: "ID"
+      user_name: "User Name"
+      email: "Email"
+      action: "Chức Năng"
+      user: "Quản lý người dùng"

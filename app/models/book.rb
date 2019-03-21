@@ -5,14 +5,14 @@ class Book < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :activities, as: :target
 
-
   has_attached_file :book_img, styles:
    {book_index: Settings.book_index, book_show: Settings.book_show},
-   default_url: "/images/:style/missing.png"
+    default_url: "/images/:style/missing.png"
   validates_attachment_content_type :book_img, content_type: %r{\Aimage\/.*\z}
   validates :title, presence: true, length: {maximum: Settings.book.max_length},
    uniqueness: {case_sensitive: false}
   validates :author, presence: true, length: {maximum: Settings.book.max_length}
+
   delegate :name, to: :category, prefix: true, allow_nil: true
 
   scope :newest, ->{order created_at: :desc}
@@ -22,10 +22,6 @@ class Book < ApplicationRecord
   scope :by_book_like,
     ->(book_ids){where id: book_ids}
 
-  scope :by_author_title, ->(key_search) do
-    where "title LIKE '%?%' OR author LIKE '%?%'", key_search, key_search if key_search.present?
-  end
-
-  scope :by_author_title_book,
-  ->(key_search){where "(title) LIKE ? OR (author) LIKE ?", "%#{key_search}%", "%#{key_search}%"}
+  scope :by_author_title_book, ->(key_search){where "(title) LIKE ? OR (author)
+    LIKE ?", "%#{key_search}%", "%#{key_search}%"}
 end
