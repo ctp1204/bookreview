@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
   before_action :logged_in_user, except: %i(index show find search)
-  before_action :load_book, :build_like, except: %i(index find new create search)
-  before_action :admin_user, except: %i(index show find search)
+  before_action :load_book, :build_like, except: %i(index find new create search searchlike)
+  before_action :admin_user, except: %i(index show find search searchlike)
   before_action :book_by_category, only: %i(show find search)
+  before_action :load_by_like, only: %i(searchlike)
 
   def index
     @books = Book.newest
@@ -16,6 +17,10 @@ class BooksController < ApplicationController
   end
 
   def find; end
+
+  def searchlike
+    @searchlike = Book.by_book_like(@by_like)
+  end
 
   def search
     @books = Book.by_author_title_book(params[:search])
@@ -86,5 +91,9 @@ class BooksController < ApplicationController
 
   def book_by_category
     @books = Book.by_category(params[:category]).limit Settings.models.limit
+  end
+
+  def load_by_like
+    @by_like = current_user.likes.pluck(:book_id)
   end
 end

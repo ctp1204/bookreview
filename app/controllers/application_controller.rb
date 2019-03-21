@@ -8,4 +8,5 @@ class ApplicationController < ActionController::Base
   def target_activity(target, action = params[:action])
     current_user.activities.create! action: action, target: target
   end
+
 end

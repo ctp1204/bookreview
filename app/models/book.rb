@@ -19,6 +19,9 @@ class Book < ApplicationRecord
   scope :by_category,
     ->(category_id){where category_id: category_id if category_id.present?}
 
+  scope :by_book_like,
+    ->(book_ids){where id: book_ids}
+
   scope :by_author_title, ->(key_search) do
     where "title LIKE '%?%' OR author LIKE '%?%'", key_search, key_search if key_search.present?
   end

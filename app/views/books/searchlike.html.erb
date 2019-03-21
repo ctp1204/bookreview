@@ -1,4 +1,4 @@
- <div class="tg-sectionspace tg-haslayout">
+<div class="tg-sectionspace tg-haslayout">
   <div class="container">
     <div class="row">
       <div id="tg-twocolumns" class="tg-twocolumns">
@@ -34,11 +34,11 @@
                 </div>
               </div>
             </div>
-            <% if @books.any? %>
+            <% if @searchlike.any? %>
               <div class="tg-sectionhead">
                 <h2><span><%= t "view.books.show.new_book" %></span><%= t "view.books.show.relate" %></h2>
               </div>
-              <%= render @books %>
+              <%= render @searchlike %>
             <% else %>
               <div class="tg-sectionhead">
                 <h2><span><%= t "view.books.show.new_book" %></span><%= t "view.books.show.relate" %></h2>

@@ -36,14 +36,14 @@
             </div>
             <% if @books.any? %>
               <div class="tg-sectionhead">
-                <h2><span>Related Books</span>Search Results</h2>
+                <h2><span><%= t "view.books.show.new_book" %></span><%= t "view.books.show.relate" %></h2>
               </div>
               <%= render @books %>
             <% else %>
               <div class="tg-sectionhead">
-                <h2><span>Related Books</span>Search Results</h2>
+                <h2><span><%= t "view.books.show.new_book" %></span><%= t "view.books.show.relate" %></h2>
               </div>
-              <h4>There are no books currently in this category</h4>
+              <h4><%= t "view.books.show.no_category" %></h4>
             <% end %>
           </div>
         </div>

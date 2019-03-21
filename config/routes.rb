@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get "books/show", to: "books#show"
   get "books/find", to: "books#find"
+  get "books/searchlike", to: "books#searchlike"
   get "books/search", to: "books#search"
   get "sessions/new"
   get "users/new"

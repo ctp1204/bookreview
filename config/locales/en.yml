@@ -25,6 +25,7 @@ en:
       author: "Authors"
       latest_book: "Latest Book"
       suggest: Suggest
+      listlike: "List Like"
   deleted: "Book deleted"
   un_delete: "unsuccessfully_book"
   books:
