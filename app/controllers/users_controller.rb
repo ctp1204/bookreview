@@ -38,6 +38,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def updaterole
+    if @user.role == "admin"
+      @user.update(role: "user")
+      flash[:success] = "Set user success"
+      redirect_to @user
+    elsif @user.role == "user"
+      @user.update(role: "admin")
+      flash[:success] = "Set admin success"
+      redirect_to @user
+    else
+      flash[:danger] = "Sorry. No found"
+      redirect_to @user
+    end
+  end
+
   def destroy
     if @user.destroy
       flash[:success] = t "controller.user.delete_user"

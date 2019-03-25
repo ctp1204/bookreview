@@ -2,9 +2,9 @@ class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
   has_many :reviews, dependent: :destroy
   has_many :books
-  # has_many :likes, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  # has_many :activities, dependent: :destroy
+  has_many :activities, dependent: :destroy
   # has_many :marks, dependent: :destroy
   # has_many :suggests, dependent: :destroy
   has_many :active_relationships, class_name: Relationship.name,
@@ -27,6 +27,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length:
     {minimum: Settings.user.password.min_length}, allow_nil: true
   has_secure_password
+  enum role: {user: 0, admin: 1}
 
   class << self
     def digest string

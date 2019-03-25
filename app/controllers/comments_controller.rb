@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @comment = @review.comments.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
+      target_activity @comment
       flash[:success] = t "controller.comments.create_comment"
       redirect_to book_path(@book)
     else
@@ -22,6 +23,7 @@ class CommentsController < ApplicationController
 
   def destroy
     if @comment.destroy
+      target_activity @comment
       flash[:success] = t "controller.comments.delete_comment"
       redirect_to book_path(@book)
     else

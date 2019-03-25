@@ -1,0 +1,7 @@
+<% if activity.target %>
+  <i><%= t "view.activities.like.create_like" %></i> " <%= link_to activity.target.book_title, activity.target.book %> "
+  <i><%= time_ago_in_words(activity.created_at) %></i>
+<% else %>
+  <i><%= t "view.activities.like.remove_like" %></i>
+  <i><%= time_ago_in_words(activity.created_at) %></i>
+<% end %>

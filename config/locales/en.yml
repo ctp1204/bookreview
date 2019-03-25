@@ -5,6 +5,7 @@ en:
   please_login: "Please Log in."
   hello: "Hello world"
   pass_reset: "Password reset"
+  sure: "You a sure?"
   error: "An error has occurred, please try again!"
   layouts:
     application:
@@ -24,6 +25,7 @@ en:
       author: "Authors"
       latest_book: "Latest Book"
       suggest: Suggest
+      searchlike: "List Like"
   deleted: "Book deleted"
   un_delete: "unsuccessfully_book"
   books:
@@ -78,7 +80,30 @@ en:
       create_comment_fail: "Create reivew fail"
       delete_comment: "Delete comment success"
       delete_comment_fail: "Delete comment fail"
+    likes:
+      like_success: "Like a book success"
+      like_fail: "Like a book fail"
+      unlike_success: "Unlike a book success"
+      unlike_fail: "Unlike a book fail"
+      load_like: "Sorry, no like"
   view:
+    activities:
+      comment:
+        create_comment: "comment on book"
+        remove_comment: "added a comment which has since been removed"
+        destroy_comment: "removed comment on book"
+      like:
+        create_like: "like on book"
+        remove_like: "added a like which has since been removed"
+        destroy_like: "removed like on book"
+      review:
+        create_review: "review on book"
+        update_review: "update review on book"
+        remove_review: "added a review which has since been removed"
+        destroy_review: "removed review on book"
+
+      list_activity: "List Activities"
+      no_activity: "There are no activity currently"
     shared:
       following: "following"
       followers: "followers"
@@ -87,6 +112,8 @@ en:
         sign_up: "Sign up"
         create_user: "Create my account"
       user:
+        setadmin: "SetAdmin"
+        setuser: "SetUser"
         delete: "Delete"
         sure: "You sure?"
         all_users: "All users"
@@ -125,6 +152,7 @@ your password will stay as it is."
         relate_book: "Related Books"
         also_like: "You May Also Like"
         no_category: "There are no books currently in this category"
+        no_review: "There are no reviews currently in this book"
         addreview: "AddReview"
         search: "Search title, author ..."
       bookslider:
@@ -138,6 +166,9 @@ your password will stay as it is."
         nostrud exercitation ullamcoiars nisiuip commodo consequat aute irure
         dolor in aprehenderit aveli esseati cillum dolor fugiat nulla pariatur
         cepteur sint occaecat cupidatat."
+    likes:
+      like: "Like"
+      unlike: "Unlike"
     sessions:
       login: "Log in"
       signup : "Sign up now!"

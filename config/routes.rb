@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get "books/show", to: "books#show"
   get "books/find", to: "books#find"
+  get "books/search", to: "books#search"
+  get "books/searchlike", to: "books#searchlike"
   get "sessions/new"
   get "users/new"
   get "/signup", to: "users#new"
@@ -19,9 +21,13 @@ Rails.application.routes.draw do
   end
   resources :users do
     member do
+      patch :updaterole
       get :following, :followers
     end
   end
+  post "/like", to: "likes#create"
+  delete "/unlike", to: "likes#destroy"
+  resources :activities
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :relationships, only: [:create, :destroy]
 end

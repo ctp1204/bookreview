@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
-  before_action :logged_in_user, except: %i(index show find)
-  before_action :load_book, except: %i(index find new create)
-  before_action :admin_user, except: %i(index show find)
-  before_action :book_by_category, only: %i(show find)
+  before_action :logged_in_user, except: %i(index show find search searchlike)
+  before_action :load_book, :build_like, except: %i(index find new create search searchlike)
+  before_action :admin_user, except: %i(index show find search searchlike)
+  before_action :book_by_category, only: %i(show find search)
+  before_action :book_by_like, only: %i(searchlike)
 
   def index
     @books = Book.newest
@@ -17,8 +18,12 @@ class BooksController < ApplicationController
 
   def find; end
 
+  def searchlike
+    @searchlike = Book.by_like_book(@by_like)
+  end
+
   def search
-    @books = Book.by_author_title(params[:search])
+    @books = Book.by_author_title_book(params[:search])
   end
 
   def new
@@ -62,6 +67,10 @@ class BooksController < ApplicationController
       :publisher, :rate_points, :number_pages, :category_id, :book_img
   end
 
+  def build_like
+    @like = @book.likes.new
+  end
+
   def load_book
     @book = Book.find_by id: params[:id]
     return if @book
@@ -82,5 +91,9 @@ class BooksController < ApplicationController
 
   def book_by_category
     @books = Book.by_category(params[:category]).limit Settings.models.limit
+  end
+
+  def book_by_like
+    @by_like = current_user.likes.pluck(:book_id)
   end
 end

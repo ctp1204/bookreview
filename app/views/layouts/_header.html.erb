@@ -22,10 +22,12 @@
               <% if logged_in? %>
                 <% if current_user.admin? %>
                   <li><%= link_to t("layouts.header.add_book"), new_book_path %></li>
-                  <li><%= link_to t("layouts.header.user"), users_path %></li>
                 <% else %>
                   <li><%= link_to t("layouts.header.suggest"), "#" %></li>
                 <% end %>
+                  <li><%= link_to t("layouts.header.user"), users_path %></li>
+                  <li><%= link_to t("layouts.header.activities"), activities_path(user_id: current_user) %></li>
+                  <li><%= link_to t("layouts.header.searchlike"), books_searchlike_path %></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     Account <b class="caret"></b>
@@ -57,9 +59,9 @@
               <%= link_to image_tag("logo.png", alt: "company name here") %>
             </a></strong>
             <div class="tg-searchbox">
-              <%= form_for "", url: books_find_path, role: "search",
+              <%= form_for "", url: books_search_path, role: "search",
               method: :get do %>
-                <%= text_field_tag :search, @search_term, placeholder: t("view.books.show.search") %>
+                <%= text_field_tag :search, params[:search], placeholder: t("view.books.show.search") %>
               <% end %>
             </div>
           </div>

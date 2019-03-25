@@ -32,3 +32,5 @@ view:
     size: 50
     size_follow: 30
 per_page: 5
+activities:
+  page_index: 10

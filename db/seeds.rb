@@ -2,7 +2,7 @@ User.create!(name:  "Le Quoc Cuong",
              email: "lqcuong.qt@gmail.com",
              password: "CTP971204",
              password_confirmation: "CTP971204",
-             admin: true,
+             role: 1,
              activated: true,
              activated_at: Time.zone.now)
 
@@ -17,3 +17,6 @@ User.create!(name:  "Le Quoc Cuong",
                activated: true,
                activated_at: Time.zone.now)
 end
+Category.create(name: "Sach Hay")
+Category.create(name: "Sach Khoa Hoc")
+Category.create(name: "Sach Giao Khoa")

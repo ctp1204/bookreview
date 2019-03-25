@@ -1,0 +1,7 @@
+<% if activity.target %>
+  <i><%= t "view.activities.comment.create_comment" %></i> " <%= link_to activity.target.review.book_title, activity.target.review.book %> "
+  <i><%= time_ago_in_words(activity.created_at) %></i>
+<% else %>
+  <i><%= t "view.activities.comment.remove_comment" %></i>
+  <i><%= time_ago_in_words(activity.created_at) %></i>
+<% end %>
